@@ -34,10 +34,10 @@ target_precompile_headers(Avendish_pd_pch
     include/avnd/prefix.hpp
 )
 
-target_link_libraries(Avendish_pd_pch
-  PUBLIC
-    DisableExceptions
-)
+# target_link_libraries(Avendish_pd_pch
+#   PUBLIC
+#     DisableExceptions
+# )
 
 avnd_common_setup("" "Avendish_pd_pch")
 
@@ -89,8 +89,8 @@ function(avnd_make_pd)
 
   target_link_libraries(
     ${AVND_FX_TARGET}
-    PUBLIC
-      DisableExceptions
+    # PUBLIC
+    #   DisableExceptions
     PUBLIC
       Avendish::Avendish_pd
   )

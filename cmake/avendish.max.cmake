@@ -76,7 +76,7 @@ function(avnd_make_max)
     ${AVND_FX_TARGET}
     PUBLIC
       Avendish::Avendish_max
-      DisableExceptions
+ #     DisableExceptions
   )
 
   if(APPLE)

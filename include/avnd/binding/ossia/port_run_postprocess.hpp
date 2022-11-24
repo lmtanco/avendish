@@ -187,13 +187,13 @@ struct process_after_run
     {
       if constexpr(static_geometry_type<Field> || dynamic_geometry_type<Field>)
       {
-        port.data.meshes.meshes.resize(1);
-        load_geometry(ctrl, port.data.meshes.meshes[0]);
+        port.data.meshes->meshes.resize(1);
+        load_geometry(ctrl, port.data.meshes->meshes[0]);
       }
       else if constexpr(static_geometry_type<decltype(Field::mesh)> || dynamic_geometry_type<decltype(Field::mesh)>)
       {
-        port.data.meshes.meshes.resize(1);
-        load_geometry(ctrl.mesh, port.data.meshes.meshes[0]);
+        port.data.meshes->meshes.resize(1);
+        load_geometry(ctrl.mesh, port.data.meshes->meshes[0]);
       }
       else
       {

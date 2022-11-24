@@ -41,7 +41,7 @@ requires(!avnd::vector_ish<std::decay_t<T>>) constexpr void for_each_field_ref(
   {
     (func(sequence_tuple::get<I>(t)), ...);
   }
-  (make_index_sequence<fields_count_val>{});
+  (std::make_index_sequence<fields_count_val>{});
 #else
   auto&& [... elts] = value;
   (func(elts), ...);
@@ -61,7 +61,7 @@ requires(!avnd::vector_ish<T>) constexpr void for_each_field_ref_n(T&& value, F&
   {
     (func(sequence_tuple::get<I>(t), avnd::field_index<I>{}), ...);
   }
-  (make_index_sequence<fields_count_val>{});
+  (std::make_index_sequence<fields_count_val>{});
 #else
   auto&& [... elts] = value;
   (func(elts), ...);

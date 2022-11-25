@@ -13,6 +13,8 @@ elseif(EXISTS "${AVND_MAXSDK_PATH}/c74support/max-includes")
   set(MAXSDK_MAX_INCLUDE_DIR "${AVND_MAXSDK_PATH}/c74support/max-includes")
   set(MAXSDK_MSP_INCLUDE_DIR "${AVND_MAXSDK_PATH}/c74support/msp-includes")
 endif()
+# before rebasing to the latest changes I needed this, going to leave commented out just in case
+# add_definitions(-DC74_USE_STRICT_TYPES)
 
 if(APPLE)
   find_library(MAXSDK_API_LIBRARY NAMES MaxAPI HINTS "${MAXSDK_MAX_INCLUDE_DIR}")

@@ -63,7 +63,7 @@ function(avnd_make_vst3)
     PUBLIC
       Avendish::Avendish_vst3
       sdk_common pluginterfaces
-      DisableExceptions
+ #     DisableExceptions
   )
   if(APPLE)
     find_library(COREFOUNDATION_FK CoreFoundation)

@@ -49,6 +49,7 @@ function(avnd_make_vst3)
       "${CMAKE_BINARY_DIR}/${AVND_C_NAME}_vst3.cpp"
   )
 
+if (LINUX)
   set_target_properties(
     ${AVND_FX_TARGET}
     PROPERTIES
@@ -56,6 +57,13 @@ function(avnd_make_vst3)
       LIBRARY_OUTPUT_DIRECTORY "vst3/${AVND_C_NAME}.vst3/Contents/x86_64-linux"
       RUNTIME_OUTPUT_DIRECTORY "vst3/${AVND_C_NAME}.vst3/Contents/x86_64-linux"
   )
+elseif(APPLE)
+  set_target_properties(
+    ${AVND_FX_TARGET}
+    PROPERTIES
+      MACOSX_BUNDLE TRUE
+  )
+endif(LINUX)
 
   target_link_libraries(
     ${AVND_FX_TARGET}

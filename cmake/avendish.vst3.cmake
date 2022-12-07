@@ -32,7 +32,7 @@ endif()
 add_subdirectory("${VST3_SDK_ROOT}" "${CMAKE_BINARY_DIR}/vst3_sdk")
 
 function(avnd_make_vst3)
-  cmake_parse_arguments(AVND "" "TARGET;MAIN_FILE;MAIN_CLASS;C_NAME;BUNDLE_IDENTIFIER;COMPANY_NAME" "" ${ARGN})
+  cmake_parse_arguments(AVND "" "TARGET;MAIN_FILE;MAIN_CLASS;C_NAME" "" ${ARGN})
   set(AVND_FX_TARGET "${AVND_TARGET}_vst3")
   add_library(${AVND_FX_TARGET} MODULE)
 
@@ -62,14 +62,6 @@ elseif(APPLE)
   smtg_enable_vst3_sdk()
   smtg_target_set_vst_win_architecture_name(${AVND_FX_TARGET})
   smtg_target_make_plugin_package(${AVND_FX_TARGET} ${AVND_FX_TARGET} vst3)
-  smtg_target_set_bundle(${AVND_FX_TARGET}
-    BUNDLE_IDENTIFIER "${AVND_BUNDLE_IDENTIFIER}"
-    COMPANY_NAME "${AVND_COMPANY_NAME}"
-  )
-  
-  message(STATUS "[SMTG-LUISO] -- BUNDLE_IDENTIFIER is ${BUNDLE_IDENTIFIER}")
-  message(STATUS "[SMTG-LUISO] -- COMPANY_NAME is ${COMPANY_NAME}")
-
   smtg_target_create_module_info_file(${AVND_FX_TARGET})
   smtg_get_vst3_path()
   smtg_target_create_link_to_plugin(${AVND_FX_TARGET} ${SMTG_PLUGIN_TARGET_PATH})

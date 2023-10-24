@@ -49,16 +49,28 @@ function(avnd_make_vst3)
       "${AVND_MAIN_FILE}"
       "${CMAKE_BINARY_DIR}/${AVND_C_NAME}_vst3.cpp"
   )
-
+ 
+  if(WIN32)
   set_target_properties(
     ${AVND_FX_TARGET}
     PROPERTIES
       OUTPUT_NAME "${AVND_C_NAME}"
-      LIBRARY_OUTPUT_DIRECTORY "vst3/${AVND_C_NAME}.vst3/Contents/x86_64-linux"
-      RUNTIME_OUTPUT_DIRECTORY "vst3/${AVND_C_NAME}.vst3/Contents/x86_64-linux"
+      LIBRARY_OUTPUT_DIRECTORY_RELEASE "vst3/${AVND_C_NAME}.vst3/Contents/x86_64-win"
+      RUNTIME_OUTPUT_DIRECTORY_RELEASE "vst3/${AVND_C_NAME}.vst3/Contents/x86_64-win"
+      SUFFIX ".vst3"
+  
   )
+elseif(UNIX)
+set_target_properties(
+  ${AVND_FX_TARGET}
+  PROPERTIES
+    OUTPUT_NAME "${AVND_C_NAME}"
+    LIBRARY_OUTPUT_DIRECTORY "vst3/${AVND_C_NAME}.vst3/Contents/x86_64-linux"
+    RUNTIME_OUTPUT_DIRECTORY "vst3/${AVND_C_NAME}.vst3/Contents/x86_64-linux"
+)
+endif(WIN32)
 
-  target_link_libraries(
+    target_link_libraries(
     ${AVND_FX_TARGET}
     PUBLIC
       Avendish::Avendish_vst3

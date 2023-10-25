@@ -50,15 +50,17 @@ function(avnd_make_vst3)
       "${CMAKE_BINARY_DIR}/${AVND_C_NAME}_vst3.cpp"
   )
  
-  if(WIN32)
+if(WIN32)
   set_target_properties(
     ${AVND_FX_TARGET}
     PROPERTIES
-      OUTPUT_NAME "${AVND_C_NAME}"
+      OUTPUT_NAME_RELEASE "${AVND_C_NAME}"
       LIBRARY_OUTPUT_DIRECTORY_RELEASE "vst3/${AVND_C_NAME}.vst3/Contents/x86_64-win"
       RUNTIME_OUTPUT_DIRECTORY_RELEASE "vst3/${AVND_C_NAME}.vst3/Contents/x86_64-win"
+      OUTPUT_NAME_DEBUG "${AVND_C_NAME}d"
+      LIBRARY_OUTPUT_DIRECTORY_DEBUG "vst3/${AVND_C_NAME}.vst3/Contents/x86_64-win"
+      RUNTIME_OUTPUT_DIRECTORY_DEBUG "vst3/${AVND_C_NAME}.vst3/Contents/x86_64-win"
       SUFFIX ".vst3"
-  
   )
 elseif(UNIX)
 set_target_properties(

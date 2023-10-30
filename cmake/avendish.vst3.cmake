@@ -72,6 +72,12 @@ set_target_properties(
 )
 endif(WIN32)
 
+target_compile_definitions(
+  ${AVND_TARGET}
+  PUBLIC
+    -DAVND_VST3=1
+)
+
     target_link_libraries(
     ${AVND_FX_TARGET}
     PUBLIC

@@ -58,8 +58,8 @@ if(WIN32)
       LIBRARY_OUTPUT_DIRECTORY_RELEASE "vst3/${AVND_C_NAME}.vst3/Contents/x86_64-win"
       RUNTIME_OUTPUT_DIRECTORY_RELEASE "vst3/${AVND_C_NAME}.vst3/Contents/x86_64-win"
       OUTPUT_NAME_DEBUG "${AVND_C_NAME}d"
-      LIBRARY_OUTPUT_DIRECTORY_DEBUG "vst3/${AVND_C_NAME}.vst3/Contents/x86_64-win"
-      RUNTIME_OUTPUT_DIRECTORY_DEBUG "vst3/${AVND_C_NAME}.vst3/Contents/x86_64-win"
+      LIBRARY_OUTPUT_DIRECTORY_DEBUG "vst3/${AVND_C_NAME}d.vst3/Contents/x86_64-win"
+      RUNTIME_OUTPUT_DIRECTORY_DEBUG "vst3/${AVND_C_NAME}d.vst3/Contents/x86_64-win"
       SUFFIX ".vst3"
   )
 elseif(UNIX)
